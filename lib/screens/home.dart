@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -32,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Book(
       title: 'Hyouka',
       author: 'Yonezawa Honobu',
+      status: 'new',
     ),
     Book(title: 'Book 4', author: 'Author 4'),
     // Add more books as needed
@@ -76,20 +78,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'May be interesting',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.arrow_forward),
-                    onPressed: () {
-                      // Handle button press
-                    },
-                  ),
-                ],
+              _headerRow(
+                'May be interesting',
+                () {
+                  print('go to another page');
+                },
               ),
               Container(
                 height: 203,
@@ -157,37 +150,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'New',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.arrow_forward),
-                    onPressed: () {
-                      // Handle button press
-                    },
-                  ),
-                ],
+              _headerRow(
+                'New',
+                () {
+                  print('new page');
+                },
               ),
               const SizedBox(height: 10),
               _buildNewBookCard(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Popular',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.arrow_forward),
-                    onPressed: () {
-                      // Handle button press
-                    },
-                  ),
-                ],
+              _headerRow(
+                'Popular',
+                () {
+                  print('popular page');
+                },
               ),
             ],
           ),
@@ -196,41 +171,84 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildNewBookCard() {
-    Book? newBook = books.firstWhere((book) => book.status == 'new');
+  int _currentIndex = 0;
 
-    return Card(
-      child: Row(
-        children: [
-          Expanded(
-            flex: 2,
-            child: ListTile(
-              title: Text(
-                newBook.title.length >= 25
-                    ? newBook.title.substring(0, 24) + '...'
-                    : newBook.title,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w500,
+  Widget _buildNewBookCard() {
+    List<Book> newBooks = books.where((book) => book.status == 'new').toList();
+
+    return Column(
+      children: [
+        Container(
+          height: 200, // Adjust the height as needed
+          child: PageView.builder(
+            itemCount: newBooks.length,
+            onPageChanged: (int index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            itemBuilder: (BuildContext context, int index) {
+              return Card(
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: ListTile(
+                        title: Text(
+                          newBooks[index].title.length >= 25
+                              ? newBooks[index].title.substring(0, 24) + '...'
+                              : newBooks[index].title,
+                          style:
+                              Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                        subtitle: Text(
+                          'by ' + newBooks[index].author,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ),
                     ),
-              ),
-              subtitle: Text(
-                'by ' + newBook.author,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-            ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+                      child: Container(
+                        height: 150,
+                        width: 150,
+                        child: Image.network(
+                          'https://placehold.co/100x150.jpg', // Replace with actual book cover image
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-            child: Container(
-              height: 150,
-              width: 150,
-              child: Image.network(
-                'https://placehold.co/100x150.jpg', // Replace with actual book cover image
-              ),
-            ),
-          )
-        ],
-      ),
+        ),
+        DotsIndicator(
+          dotsCount: newBooks.length,
+          position: _currentIndex.toDouble(),
+          decorator: DotsDecorator(
+            activeColor: Colors.blue, // Change to your preferred color
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _headerRow(String headerTitle, VoidCallback onPressed) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          '$headerTitle',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        IconButton(
+          icon: Icon(Icons.arrow_forward),
+          onPressed: onPressed,
+        ),
+      ],
     );
   }
 }
