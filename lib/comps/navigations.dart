@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lily/screens/home.dart';
 
 class Destination {
@@ -13,22 +11,22 @@ class Destination {
 }
 
 List<Destination> destinations = <Destination>[
-  Destination(
+  const Destination(
       'Home', Icon(Icons.home_outlined), Icon(Icons.home_filled), HomeScreen()),
-  Destination(
+  const Destination(
       'News', Icon(Icons.article_outlined), Icon(Icons.article), HomeScreen()),
-  Destination('Settings', Icon(Icons.settings_outlined), Icon(Icons.settings),
-      HomeScreen()),
+  const Destination('Settings', Icon(Icons.settings_outlined),
+      Icon(Icons.settings), HomeScreen()),
 ];
 
 class Navigations extends StatefulWidget {
-  const Navigations({Key? key}) : super(key: key);
+  const Navigations({super.key});
 
   @override
-  _NavigationsState createState() => _NavigationsState();
+  NavigationsState createState() => NavigationsState();
 }
 
-class _NavigationsState extends State<Navigations> {
+class NavigationsState extends State<Navigations> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   int screenIndex = 0;
   late bool showNavigationDrawer;
@@ -96,7 +94,7 @@ class _NavigationsState extends State<Navigations> {
                       );
                     }).toList(),
                   ),
-                  VerticalDivider(thickness: 1, width: 1),
+                  const VerticalDivider(thickness: 1, width: 1),
                   Expanded(
                     child: destinations[screenIndex].screen,
                   ),
@@ -117,8 +115,8 @@ class _NavigationsState extends State<Navigations> {
             selectedIndex: screenIndex,
             onDestinationSelected: handleScreenChanged,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(28, 16, 16, 10),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(28, 16, 16, 10),
               ),
               ...destinations.map((Destination destination) {
                 return NavigationDrawerDestination(
@@ -126,7 +124,7 @@ class _NavigationsState extends State<Navigations> {
                   icon: destination.icon,
                   selectedIcon: destination.selectedIcon,
                 );
-              }).toList(),
+              }),
             ],
           ),
           Expanded(

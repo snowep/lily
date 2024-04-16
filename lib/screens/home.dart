@@ -1,6 +1,5 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Book {
   final String title;
@@ -11,11 +10,13 @@ class Book {
 }
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   final List<Book> books = <Book>[
     Book(
       title: 'Funiculi Funicula - Before the Coffee Gets Cold',
@@ -38,6 +39,16 @@ class _HomeScreenState extends State<HomeScreen> {
     Book(title: 'Book 4', author: 'Author 4'),
     // Add more books as needed
   ];
+  List<String> genres = [
+    'Fantasy',
+    'Sci-Fi',
+    'Mystery',
+    'Thriller',
+    'Romance',
+    'Horror',
+    'Adventure',
+    'Non-Fiction',
+  ];
 
   int currentBookIndex = 0;
   double currentBookProgress = 0.5; // Value between 0.0 and 1.0
@@ -55,8 +66,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return NestedScrollView(
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return <Widget>[
-          SliverAppBar(
-            backgroundColor: Colors.transparent,
+          const SliverAppBar(
+            toolbarHeight: 25,
             elevation: 0,
           ),
         ];
@@ -84,68 +95,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   print('go to another page');
                 },
               ),
-              Container(
+              SizedBox(
                 height: 203,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: books.length,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(top: 8.0, right: 25),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Container(
-                              height: 150,
-                              width: 100,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(5),
-                                  topRight: Radius.circular(5),
-                                ),
-                                child: Image.network(
-                                  'https://placehold.co/100x150.jpg',
-                                  fit: BoxFit.cover,
-                                ),
-                              )),
-                          const SizedBox(height: 5),
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  maxLines: 2,
-                                  books[index].title.length >= 11
-                                      ? books[index].title.substring(0, 11) +
-                                          '...'
-                                      : books[index].title,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge
-                                      ?.copyWith(
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                                Text(
-                                  books[index].author.length >= 13
-                                      ? books[index].author.substring(0, 13) +
-                                          '...'
-                                      : books[index].author,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall
-                                      ?.copyWith(
-                                        color: Colors.grey[600],
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
+                    return BookCard(book: books[index]);
                   },
                 ),
               ),
@@ -164,6 +120,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   print('popular page');
                 },
               ),
+              SizedBox(
+                height: 203,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: books.length,
+                  itemBuilder: (context, index) {
+                    return BookCard(book: books[index]);
+                  },
+                ),
+              ),
+              const SizedBox(height: 10),
+              _headerRow(
+                'Genre',
+                () {
+                  print('genre page');
+                },
+              ),
+              const SizedBox(height: 10),
+              _buildGenreChips(),
             ],
           ),
         ),
@@ -178,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: 200, // Adjust the height as needed
           child: PageView.builder(
             itemCount: newBooks.length,
@@ -196,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ListTile(
                         title: Text(
                           newBooks[index].title.length >= 25
-                              ? newBooks[index].title.substring(0, 24) + '...'
+                              ? '${newBooks[index].title.substring(0, 24)}...'
                               : newBooks[index].title,
                           style:
                               Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -204,14 +179,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                         ),
                         subtitle: Text(
-                          'by ' + newBooks[index].author,
+                          'by ${newBooks[index].author}',
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-                      child: Container(
+                      child: SizedBox(
                         height: 150,
                         width: 150,
                         child: Image.network(
@@ -228,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
         DotsIndicator(
           dotsCount: newBooks.length,
           position: _currentIndex.toDouble(),
-          decorator: DotsDecorator(
+          decorator: const DotsDecorator(
             activeColor: Colors.blue, // Change to your preferred color
           ),
         ),
@@ -241,14 +216,88 @@ class _HomeScreenState extends State<HomeScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text(
-          '$headerTitle',
+          headerTitle,
           style: Theme.of(context).textTheme.titleLarge,
         ),
         IconButton(
-          icon: Icon(Icons.arrow_forward),
+          icon: const Icon(Icons.arrow_forward),
           onPressed: onPressed,
         ),
       ],
+    );
+  }
+
+  Widget _buildGenreChips() {
+    return Wrap(
+      runAlignment: WrapAlignment.start,
+      spacing: 5.0, // gap between adjacent chips
+      runSpacing: 1.0, // gap between lines
+      children: genres.map((String genre) {
+        return ActionChip(
+          visualDensity: VisualDensity.compact,
+          label: Text(genre),
+          onPressed: () {
+            // Handle genre selection
+          },
+        );
+      }).toList(),
+    );
+  }
+}
+
+class BookCard extends StatelessWidget {
+  final Book book;
+
+  const BookCard({super.key, required this.book});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0, right: 25),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(
+            height: 150,
+            width: 100,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(5),
+                topRight: Radius.circular(5),
+              ),
+              child: Image.network(
+                'https://placehold.co/100x150.jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(height: 5),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                book.title.length >= 11
+                    ? '${book.title.substring(0, 11)}...'
+                    : book.title,
+                maxLines: 2,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+              Text(
+                book.author.length >= 13
+                    ? '${book.author.substring(0, 13)}...'
+                    : book.author,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Colors.grey[600],
+                    ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
