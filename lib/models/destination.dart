@@ -16,6 +16,6 @@ List<Destination> destinations = <Destination>[
       'Home', Icon(Icons.home_outlined), Icon(Icons.home_filled), HomeScreen()),
   const Destination('Activity', Icon(Icons.notifications_none),
       Icon(Icons.notifications), HomeScreen()),
-  const Destination(
-      'Bookshelf', Icon(Icons.shelves), Icon(Icons.shelves), BookShelf()),
+  Destination('Bookshelf', const Icon(Icons.shelves), const Icon(Icons.shelves),
+      Bookshelf()),
 ];

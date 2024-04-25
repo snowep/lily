@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lily/models/books.dart';
 import 'package:lily/screens/book_details.dart';
 import 'package:lily/screens/catalog.dart';
+import 'package:lily/services/book_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,6 +13,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  List<Book> books = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadBooks();
+  }
+
+  void loadBooks() async {
+    books = await BookService.loadBooks();
+    setState(() {});
+  }
+
   List<String> genres = [
     'Fantasy',
     'Sci-Fi',
@@ -219,13 +233,15 @@ class HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-          DotsIndicator(
-            dotsCount: newBooks.length,
-            position: _currentIndex.toDouble(),
-            decorator: const DotsDecorator(
-              activeColor: Colors.blue, // Change to your preferred color
-            ),
-          ),
+          newBooks.isEmpty
+              ? Container()
+              : DotsIndicator(
+                  dotsCount: newBooks.length,
+                  position: _currentIndex.toDouble(),
+                  decorator: const DotsDecorator(
+                    activeColor: Colors.blue, // Change to your preferred color
+                  ),
+                ),
         ],
       ),
     );

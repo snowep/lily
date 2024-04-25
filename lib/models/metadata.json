@@ -1,0 +1,120 @@
+{
+    "books": [
+        {
+            "isbn": "978-6-02065-192-7",
+            "title": "Funiculi Funicula - Before the Coffee Gets Cold",
+            "authorID": "001",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1618464562i/57743808.jpg",
+            "description": "Di sebuah gang kecil di Tokyo, ada kafe tua yang bisa membawa pengunjungnya menjelajahi waktu. Keajaiban kafe itu menarik seorang wanita yang ingin memutar waktu untuk berbaikan dengan kekasihnya, seorang perawat yang ingin membaca surat yang tak sempat diberikan suaminya yang sakit, seorang kakak yang ingin menemui adiknya untuk terakhir kali, dan seorang ibu yang ingin bertemu dengan anak yang mungkin takkan pernah dikenalnya. Namun ada banyak peraturan yang harus diingat. Satu, mereka harus tetap duduk di kursi yang telah ditentukan. Dua, apa pun yang mereka lakukan di masa yang didatangi takkan mengubah kenyataan di masa kini. Tiga, mereka harus menghabiskan kopi khusus yang disajikan sebelum kopi itu dingin. Rentetan peraturan lainnya tak menghentikan orang-orang itu untuk menjelajahi waktu. Akan tetapi, jika kepergian mereka tak mengubah satu hal pun di masa kini, layakkah semua itu dijalani?",
+            "isOwned": true,
+            "status": "new",
+            "details": {
+                "totalPage": 224,
+                "seriesID": "001",
+                "volume": 1
+            },
+            "lendStatus": {
+                "isLend": true,
+                "lendTo": "Audreyvia",
+                "lendDate": "2024-04-23",
+                "returnDate": null
+            }
+        },
+        {
+            "isbn": "978-6-02066-384-5",
+            "title": "Funiculi Funicula: Kisah-Kisah Yang Baru Terungkap",
+            "authorID": "001",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1665325911i/62917178.jpg",
+            "description": "Funiculi Funicula, sebuah kafe di gang sempit di Tokyo, masih kerap didatangi orang-orang yang ingin menjelajahi waktu. Peraturan-peraturan yang merepotkan masih berlaku, tetapi itu semua tidak menyurutkan harapan mereka untuk memutar waktu.\nKali ini ada seorang pria yang ingin kembali ke masa lalu untuk menemui sahabat yang putrinya ia besarkan, seorang putra putus asa yang tidak menghadiri pemakaman ibunya, seorang pria sekarat yang ingin melompat ke dua tahun kemudian untuk memastikan kekasihnya bahagia, dan seorang detektif yang ingin memberi istrinya hadiah ulang tahun untuk pertama sekaligus terakhir kalinya. \nKenyataan memang akan tetap sama. Namun dalam singkatnya durasi sampai kopi mendingin, mungkin masih tersisa waktu bagi mereka untuk menghapus penyesalan, membebaskan diri dari rasa bersalah, atau mungkin melihat terwujudnya harapan…",
+            "isOwned": true,
+            "details": {
+                "totalPage": 199,
+                "seriesID": "001",
+                "volume": 2
+            }
+        },
+        {
+            "isbn": "978-6-02067-171-0",
+            "isbn10": "6020671712",
+            "title": "Dona Dona",
+            "authorID": "001",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1689076927i/187714691.jpg",
+            "description": "Di sebuah lereng indah tak bernama di Hakodate, Hokkaido, berdiri Kafe Dona Dona yang menawarkan layanan istimewa kepada pengunjungnya: perjalananan melintasi waktu. Seperti di Funiculi Funicula yang ada di Tokyo, hal tersebut hanya dapat dilakukan jika berbagai peraturan yang merepotkan dipenuhi dan dengan secangkir kopi yang dituangkan oleh perempuan di keluarga Tokita.",
+            "status": "new",
+            "isOwned": true,
+            "details": {
+                "totalPage": 263,
+                "seriesID": "001",
+                "volume": 3
+            }
+        },
+        {
+            "isbn": "978-6-02638-339-6",
+            "title": "Hyouka",
+            "authorID": "002",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1511596961i/36657793.jpg",
+            "description": "Kalau kita menyelidikinya, mungkin akan terjadi hal-hal yang tidak baik.\nOreki Hotaro adalah pemuda hemat energi. Mottonya adalah, “Kalau tidak perlu dikerjakan, lebih baik tidak usah dikerjakan. Tapi kalau harus dikerjakan, lakukan dengan praktis.” Hanya saja, semua itu berubah saat dia terpaksa bergabung dengan Klub Sastra Klasik. Chitanda Eru—gadis dengan rasa penasaran yang tinggi—mengubah hari-hari Hotaro, dan dia harus memecahkan misteri demi misteri yang terjadi di sekitar mereka.\nGara-gara Chitanda, mereka dihadapkan pada kasus 33 tahun yang lalu. Hanya saja, petunjuk mereka hanyalah sebuah antologi berjudul Hyouka.",
+            "isOwned": true,
+            "details": {
+                "totalPage": 244,
+                "seriesID": "002",
+                "volume": 1
+            }
+        },
+        {
+            "isbn": "978-6-02638-350-1",
+            "title": "Credit Roll of the Fool",
+            "authorID": "002",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1525076081i/39997626.jpg",
+            "description": "Oreki Hotaro lagi-lagi terseret oleh rasa ingin tahu Chitanda Eru. Melawan keinginannya, kali ini Hotaro harus menebak penyelesaian skenario naskah film misteri kelas 2-F yang akan ditayangkan saat Festival Kanya nanti.\nSeorang siswa terjebak dalam kamar tertutup bangunan terbengkelai, mati setelah tangannya terpotong. Namun, siapa yang membunuh? Bagaimana caranya? Film itu selesai begitu saja tanpa penjelasan. Hotaro-lah yang bertugas untuk menebak siapa ada bagaimana trik pembunuhan itu dilakukan.\nNamun, hanya itukah masalahnya?\nAtau ada sesuatu yang lebih besar dari sekedar menyelesaikan skenario film?",
+            "isOwned": true,
+            "details": {
+                "totalPage": 252,
+                "seriesID": "002",
+                "volume": 2
+            }
+        },
+        {
+            "isbn": "978-6-02412-518-9",
+            "title": "Filosofi Teras",
+            "authorID": "003",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1548033656i/42861019.jpg",
+            "description": "Apakah kamu sering merasa khawatir akan banyak hal? baperan? susah move-on? mudah tersinggung dan marah-marah di social media maupun dunia nyata?\n\nLebih dari 2.000 tahun lalu, sebuah mazhab filsafat menemukan akar masalah dan juga solusi dari banyak emosi negatif. Stoisisme, atau Filosofi Teras, adalah filsafat Yunani-Romawi kuno yang bisa membantu kita mengatasi emosi negatif dan menghasilkan mental yang tangguh dalam menghadapi naik-turunnya kehidupan. Jauh dari kesan filsafat sebagai topik berat dan mengawang-awang, Filosofi Teras justru bersifat praktis dan relevan dengan kehidupan Generasi Milenial dan Gen-Z masa kini.",
+            "isOwned": false,
+            "details": {
+                "totalPage": 344,
+                "seriesID": "002"
+            },
+            "borrowedStatus": {
+                "isBorrowed": true,
+                "borrowedFrom": "Audreyvia",
+                "borrowedDate": "2024-03-25",
+                "returnDate": null
+            }
+        }
+    ],
+    "authors": [
+        {
+            "id": "001",
+            "name": "Toshikazu Kawaguchi"
+        },
+        {
+            "id": "002",
+            "name": "Yonezawa Honobu"
+        },
+        {
+            "id": "003",
+            "name": "Henry Manampiring"
+        }
+    ],
+    "series": [
+        {
+            "id": "001",
+            "name": "Before the Coffee Gets Cold"
+        },
+        {
+            "id": "002",
+            "name": "Kotenbu"
+        }
+    ]
+}
