@@ -37,13 +37,45 @@ class _BookDetailsState extends State<BookDetails> {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
+                padding: const EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 75),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
                       child: Column(
                         children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              widget.book.details!.series != null ||
+                                      widget.book.details!.volume != null
+                                  ? InkWell(
+                                      onTap: () {
+                                        // Navigate to series details
+                                      },
+                                      child: Text(
+                                        '${widget.book.details!.series?.title} #${widget.book.details!.volume}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .copyWith(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .secondary,
+                                              fontStyle: FontStyle.italic,
+                                            ),
+                                      ),
+                                    )
+                                  : Container(),
+                              Text(
+                                widget.book.details != null
+                                    ? '${widget.book.details!.totalPage} pages'
+                                    : 'No details available',
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 5),
                           ClipRRect(
                             borderRadius: const BorderRadius.only(
                               bottomRight: Radius.circular(5),
@@ -71,7 +103,7 @@ class _BookDetailsState extends State<BookDetails> {
                             widget.book.author!.name,
                             style: Theme.of(context)
                                 .textTheme
-                                .labelLarge
+                                .bodyLarge
                                 ?.copyWith(
                                   color:
                                       Theme.of(context).colorScheme.secondary,

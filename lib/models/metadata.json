@@ -118,11 +118,11 @@
     "series": [
         {
             "id": "001",
-            "name": "Before the Coffee Gets Cold"
+            "title": "Before the Coffee Gets Cold"
         },
         {
             "id": "002",
-            "name": "Kotenbu"
+            "title": "Kotenbu"
         }
     ]
 }
