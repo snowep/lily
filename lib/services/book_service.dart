@@ -1,12 +1,11 @@
 import 'dart:convert';
-import 'dart:io';
 
+import 'package:flutter/services.dart';
 import 'package:lily/models/books.dart';
 
 class BookService {
   static Future<List<Book>> loadBooks() async {
-    final file = File('lib/models/metadata.json');
-    final contents = await file.readAsString();
+    final contents = await rootBundle.loadString('assets/metadata.json');
 
     final Map<String, dynamic> json = jsonDecode(contents);
     final List<dynamic> bookObjects = json['books'];
