@@ -44,10 +44,16 @@ class _BookDetailsState extends State<BookDetails> {
                     Center(
                       child: Column(
                         children: [
-                          Image.network(
-                            widget.book.imageCover,
-                            width: 200,
-                            fit: BoxFit.cover,
+                          ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              bottomRight: Radius.circular(5),
+                              topRight: Radius.circular(5),
+                            ),
+                            child: Image.network(
+                              width: 200,
+                              widget.book.imageCover,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                           const SizedBox(height: 20),
                           Text(
