@@ -14,8 +14,8 @@ class Destination {
 List<Destination> destinations = <Destination>[
   const Destination(
       'Home', Icon(Icons.home_outlined), Icon(Icons.home_filled), HomeScreen()),
-  const Destination(
-      'News', Icon(Icons.article_outlined), Icon(Icons.article), HomeScreen()),
+  const Destination('Activity', Icon(Icons.notifications_none),
+      Icon(Icons.notifications), HomeScreen()),
   const Destination(
       'Bookshelf', Icon(Icons.shelves), Icon(Icons.shelves), BookShelf()),
 ];
