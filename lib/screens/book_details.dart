@@ -45,28 +45,32 @@ class _BookDetailsState extends State<BookDetails> {
                       child: Column(
                         children: [
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              widget.book.details!.series != null ||
-                                      widget.book.details!.volume != null
-                                  ? InkWell(
-                                      onTap: () {
-                                        // Navigate to series details
-                                      },
-                                      child: Text(
-                                        '${widget.book.details!.series?.title} #${widget.book.details!.volume}',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodySmall!
-                                            .copyWith(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .secondary,
-                                              fontStyle: FontStyle.italic,
-                                            ),
-                                      ),
-                                    )
-                                  : Container(),
+                              if (widget.book.details!.series != null ||
+                                  widget.book.details!.volume != null)
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 25.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      // Navigate to series details
+                                    },
+                                    child: Text(
+                                      '${widget.book.details!.series?.title} #${widget.book.details!.volume}',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                            fontStyle: FontStyle.italic,
+                                            decoration:
+                                                TextDecoration.underline,
+                                          ),
+                                    ),
+                                  ),
+                                ),
                               Text(
                                 widget.book.details != null
                                     ? '${widget.book.details!.totalPage} pages'

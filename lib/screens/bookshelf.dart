@@ -27,91 +27,96 @@ class _BookshelfState extends State<Bookshelf> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    'Bookshelf',
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
-                  const Spacer(),
-                  Text('${books.length} book${books.length > 1 ? 's' : ''}')
+          body: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(25.0, 40.0, 25.0, 10.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Bookshelf',
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
+                    const Spacer(),
+                    Text('${books.length} book${books.length > 1 ? 's' : ''}')
+                  ],
+                ),
+              ),
+              TabBar(
+                tabs: [
+                  Tab(text: 'Finished'),
+                  Tab(text: 'In Progress'),
                 ],
               ),
-            ),
-            TabBar(
-              tabs: [
-                Tab(text: 'Finished'),
-                Tab(text: 'In Progress'),
-              ],
-            ),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  ListView.builder(
-                    itemCount: books.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => BookDetails(
-                                book: books[index],
-                                pageTitle: 'Owned Book',
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    ListView.builder(
+                      itemCount: books.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BookDetails(
+                                  book: books[index],
+                                  pageTitle: 'Owned Book',
+                                ),
                               ),
+                            );
+                          },
+                          child: ListTile(
+                            leading: Image.network(books[index].imageCover),
+                            title: Text(
+                              books[index].title,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
                             ),
-                          );
-                        },
-                        child: ListTile(
-                          leading: Image.network(books[index].imageCover),
-                          title: Text(
-                            books[index].title,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
+                            subtitle: Text(books[index].author!.name),
                           ),
-                          subtitle: Text(books[index].author!.name),
-                        ),
-                      );
-                    },
-                  ),
-                  ListView.builder(
-                    itemCount: books.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => BookDetails(
-                                book: books[index],
-                                pageTitle: 'Wishlist Book',
+                        );
+                      },
+                    ),
+                    ListView.builder(
+                      itemCount: books.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BookDetails(
+                                  book: books[index],
+                                  pageTitle: 'Wishlist Book',
+                                ),
                               ),
+                            );
+                          },
+                          child: ListTile(
+                            leading: Image.network(books[index].imageCover),
+                            title: Text(
+                              books[index].title,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
                             ),
-                          );
-                        },
-                        child: ListTile(
-                          leading: Image.network(books[index].imageCover),
-                          title: Text(
-                            books[index].title,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
+                            subtitle: Text(books[index].author!.name),
                           ),
-                          subtitle: Text(books[index].author!.name),
-                        ),
-                      );
-                    },
-                  ),
-                ],
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              // Add new book
+            },
+            child: Icon(Icons.add),
+          )),
     );
   }
 }
