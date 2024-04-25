@@ -5,6 +5,7 @@ class Book {
   final String imageCover;
   final String? status;
   final String? description;
+  final bool? isOwned;
 
   Book({
     required this.isbn,
@@ -13,6 +14,7 @@ class Book {
     required this.imageCover,
     this.description,
     this.status,
+    required this.isOwned,
   });
 
   factory Book.fromJson(Map<String, dynamic> json, Author author) {
@@ -23,6 +25,7 @@ class Book {
       imageCover: json['imageCover'],
       description: json['description'],
       status: json['status'],
+      isOwned: json['isOwned'],
     );
   }
 }

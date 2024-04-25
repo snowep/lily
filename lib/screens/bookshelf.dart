@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lily/models/books.dart';
+import 'package:lily/screens/book_details.dart';
 import 'package:lily/services/book_service.dart';
 
 class Bookshelf extends StatefulWidget {
@@ -23,19 +24,93 @@ class _BookshelfState extends State<Bookshelf> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Bookshelf'),
-      ),
-      body: ListView.builder(
-        itemCount: books.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: Image.network(books[index].imageCover),
-            title: Text(books[index].title),
-            subtitle: Text(books[index].author!.name),
-          );
-        },
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'Bookshelf',
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
+                  const Spacer(),
+                  Text('${books.length} book${books.length > 1 ? 's' : ''}')
+                ],
+              ),
+            ),
+            TabBar(
+              tabs: [
+                Tab(text: 'Finished'),
+                Tab(text: 'In Progress'),
+              ],
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  ListView.builder(
+                    itemCount: books.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BookDetails(
+                                book: books[index],
+                                pageTitle: 'Owned Book',
+                              ),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          leading: Image.network(books[index].imageCover),
+                          title: Text(
+                            books[index].title,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                          subtitle: Text(books[index].author!.name),
+                        ),
+                      );
+                    },
+                  ),
+                  ListView.builder(
+                    itemCount: books.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BookDetails(
+                                book: books[index],
+                                pageTitle: 'Wishlist Book',
+                              ),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          leading: Image.network(books[index].imageCover),
+                          title: Text(
+                            books[index].title,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                          subtitle: Text(books[index].author!.name),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

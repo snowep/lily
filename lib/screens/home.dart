@@ -194,9 +194,9 @@ class HomeScreenState extends State<HomeScreen> {
                           flex: 2,
                           child: ListTile(
                             title: Text(
-                              newBooks[index].title.length >= 25
-                                  ? '${newBooks[index].title.substring(0, 24)}...'
-                                  : newBooks[index].title,
+                              newBooks[index].title,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
                               style: Theme.of(context)
                                   .textTheme
                                   .titleLarge
@@ -206,6 +206,8 @@ class HomeScreenState extends State<HomeScreen> {
                             ),
                             subtitle: Text(
                               'by ${newBooks[index].author!.name}',
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
                               style: Theme.of(context).textTheme.bodyMedium,
                             ),
                           ),

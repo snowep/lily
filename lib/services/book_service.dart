@@ -29,6 +29,7 @@ class BookService {
         imageCover: bookObject['imageCover'],
         description: bookObject['description'],
         status: bookObject['status'],
+        isOwned: bookObject['isOwned'] ?? false,
       );
 
       books.add(book);
