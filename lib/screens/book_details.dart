@@ -62,7 +62,7 @@ class _BookDetailsState extends State<BookDetails> {
                           ),
                           const SizedBox(height: 5),
                           Text(
-                            widget.book.author,
+                            widget.book.author!.name,
                             style: Theme.of(context)
                                 .textTheme
                                 .labelLarge

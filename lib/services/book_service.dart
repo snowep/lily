@@ -9,17 +9,26 @@ class BookService {
     final contents = await file.readAsString();
 
     final Map<String, dynamic> json = jsonDecode(contents);
-    final List<dynamic> nestedObjects = json['books'];
+    final List<dynamic> bookObjects = json['books'];
+    final List<dynamic> authorObjects = json['authors'];
 
+    // Load authors into a Map for easy lookup
+    final authors = <String, Author>{};
+    for (var authorObject in authorObjects) {
+      final author = Author.fromJson(authorObject);
+      authors[author.id] = author;
+    }
+
+    // Load books
     List<Book> books = [];
-    for (var nestedObject in nestedObjects) {
+    for (var bookObject in bookObjects) {
       final book = Book(
-        isbn: nestedObject['isbn'],
-        title: nestedObject['title'],
-        author: nestedObject['authorID'],
-        imageCover: nestedObject['imageCover'],
-        description: nestedObject['description'],
-        status: nestedObject['status'],
+        isbn: bookObject['isbn'],
+        title: bookObject['title'],
+        author: authors[bookObject['authorID']], // Look up author by ID
+        imageCover: bookObject['imageCover'],
+        description: bookObject['description'],
+        status: bookObject['status'],
       );
 
       books.add(book);

@@ -33,7 +33,7 @@ class _BookshelfState extends State<Bookshelf> {
           return ListTile(
             leading: Image.network(books[index].imageCover),
             title: Text(books[index].title),
-            subtitle: Text(books[index].author),
+            subtitle: Text(books[index].author!.name),
           );
         },
       ),

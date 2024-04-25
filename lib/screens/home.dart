@@ -205,7 +205,7 @@ class HomeScreenState extends State<HomeScreen> {
                                   ),
                             ),
                             subtitle: Text(
-                              'by ${newBooks[index].author}',
+                              'by ${newBooks[index].author!.name}',
                               style: Theme.of(context).textTheme.bodyMedium,
                             ),
                           ),
@@ -352,7 +352,7 @@ class BookCard extends StatelessWidget {
                             ),
                       ),
                       Text(
-                        book.author,
+                        book.author!.name,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
