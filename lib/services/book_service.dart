@@ -41,12 +41,10 @@ class BookService {
         details: Details.fromJson(
           bookObject['details'],
           series[bookObject['details']['seriesID']],
-        ), // Look up series by ID
+        ),
       );
-
       books.add(book);
     }
-
     return books;
   }
 }

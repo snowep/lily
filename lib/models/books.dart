@@ -36,14 +36,36 @@ class Details {
   final int totalPage;
   final Series? series;
   final int? volume;
+  final ReadingDetails? readingDetails;
 
-  Details({this.series, this.volume, required this.totalPage});
+  Details(
+      {this.series, this.volume, required this.totalPage, this.readingDetails});
 
-  factory Details.fromJson(Map<String, dynamic> json, Series? series) {
+  factory Details.fromJson(
+    Map<String, dynamic> json,
+    Series? series,
+  ) {
     return Details(
       totalPage: json['totalPage'],
       series: series,
       volume: json['volume'],
+      readingDetails: json['readingDetails'] != null
+          ? ReadingDetails.fromJson(json['readingDetails'])
+          : null,
+    );
+  }
+}
+
+class ReadingDetails {
+  final bool? isReading;
+  final int currentPage;
+
+  ReadingDetails({this.isReading, required this.currentPage});
+
+  factory ReadingDetails.fromJson(Map<String, dynamic> json) {
+    return ReadingDetails(
+      isReading: json['isReading'],
+      currentPage: json['currentPage'],
     );
   }
 }
