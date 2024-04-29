@@ -13,7 +13,6 @@ class _BookshelfState extends State<Bookshelf>
   List<Book> books = [];
   late TabController _tabController;
   int selectedTab = 0;
-  String dropdownValue = 'Title';
 
   @override
   void initState() {
@@ -82,15 +81,11 @@ class _BookshelfState extends State<Bookshelf>
                 ],
               ),
             ),
-            Column(
-              children: [
-                TabBar(
-                  controller: _tabController,
-                  tabs: const [
-                    Tab(text: 'Finished'),
-                    Tab(text: 'In Progress'),
-                  ],
-                ),
+            TabBar(
+              controller: _tabController,
+              tabs: const [
+                Tab(text: 'Finished'),
+                Tab(text: 'In Progress'),
               ],
             ),
             Expanded(
