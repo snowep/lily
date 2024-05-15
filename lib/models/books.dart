@@ -36,10 +36,16 @@ class Details {
   final int totalPage;
   final Series? series;
   final int? volume;
+  final OwnerDetails? ownerDetails;
   final ReadingDetails? readingDetails;
 
-  Details(
-      {this.series, this.volume, required this.totalPage, this.readingDetails});
+  Details({
+    this.series,
+    this.volume,
+    required this.totalPage,
+    this.readingDetails,
+    this.ownerDetails,
+  });
 
   factory Details.fromJson(
     Map<String, dynamic> json,
@@ -49,9 +55,27 @@ class Details {
       totalPage: json['totalPage'],
       series: series,
       volume: json['volume'],
+      ownerDetails: OwnerDetails.fromJson(json['ownerDetails']),
       readingDetails: json['readingDetails'] != null
-          ? ReadingDetails.fromJson(json['readingDetails'])
+          ? ReadingDetails.fromJson(json['readingDetails'], null)
           : null,
+    );
+  }
+}
+
+class OwnerDetails {
+  final String? purchaseDate;
+  final int? purchasePrice;
+
+  OwnerDetails({
+    this.purchaseDate,
+    this.purchasePrice,
+  });
+
+  factory OwnerDetails.fromJson(Map<String, dynamic> json) {
+    return OwnerDetails(
+      purchaseDate: json['purchaseDate'],
+      purchasePrice: json['purchasePrice'],
     );
   }
 }
@@ -59,13 +83,34 @@ class Details {
 class ReadingDetails {
   final bool? isReading;
   final int currentPage;
+  final ReadingStatus? readingStatus;
 
-  ReadingDetails({this.isReading, required this.currentPage});
+  ReadingDetails({
+    this.isReading,
+    required this.currentPage,
+    this.readingStatus,
+  });
 
-  factory ReadingDetails.fromJson(Map<String, dynamic> json) {
+  factory ReadingDetails.fromJson(
+      Map<String, dynamic> json, ReadingStatus? readingStatus) {
     return ReadingDetails(
       isReading: json['isReading'],
       currentPage: json['currentPage'],
+      readingStatus: readingStatus,
+    );
+  }
+}
+
+class ReadingStatus {
+  final String? startDate;
+  final String? endDate;
+
+  ReadingStatus({required this.startDate, required this.endDate});
+
+  factory ReadingStatus.fromJson(Map<String, dynamic> json) {
+    return ReadingStatus(
+      startDate: json['startDate'],
+      endDate: json['endDate'],
     );
   }
 }

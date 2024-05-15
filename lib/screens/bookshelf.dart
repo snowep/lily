@@ -18,7 +18,7 @@ class _BookshelfState extends State<Bookshelf>
   void initState() {
     super.initState();
     loadBooks();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     _tabController.addListener(_handleTabSelection);
   }
 
@@ -44,16 +44,23 @@ class _BookshelfState extends State<Bookshelf>
 
     final inProgressBooks = books
         .where((book) =>
+            book.details!.readingDetails?.readingStatus?.endDate == null &&
+                book.details!.readingDetails?.readingStatus?.startDate !=
+                    null ||
             book.details!.readingDetails?.isReading == true &&
-                book.details!.readingDetails?.currentPage ==
-                    book.details!.totalPage ||
+                book.details!.readingDetails?.currentPage !=
+                    book.details!.totalPage &&
+                book.details!.readingDetails?.readingStatus?.endDate == null ||
             book.details!.readingDetails?.isReading == false &&
                 book.details!.readingDetails?.currentPage !=
                     book.details!.totalPage)
         .toList();
 
+    final notStarted =
+        books.where((book) => book.details!.readingDetails == null).toList();
+
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,9 +80,14 @@ class _BookshelfState extends State<Bookshelf>
                       'Finished: ${finishedBooks.length} Book${finishedBooks.length > 1 ? 's' : ''}',
                       style: Theme.of(context).textTheme.bodySmall,
                     )
-                  else
+                  else if (selectedTab == 1)
                     Text(
                       'In Progress: ${inProgressBooks.length} Book${inProgressBooks.length > 1 ? 's' : ''}',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    )
+                  else
+                    Text(
+                      'Not Started: ${notStarted.length} Book${notStarted.length > 1 ? 's' : ''}',
                       style: Theme.of(context).textTheme.bodySmall,
                     )
                 ],
@@ -86,6 +98,7 @@ class _BookshelfState extends State<Bookshelf>
               tabs: const [
                 Tab(text: 'Finished'),
                 Tab(text: 'In Progress'),
+                Tab(text: 'Not Started')
               ],
             ),
             Expanded(
@@ -158,16 +171,38 @@ class _BookshelfState extends State<Bookshelf>
                       );
                     },
                   ),
+                  ListView.builder(
+                    itemCount: notStarted.length,
+                    itemBuilder: (context, index) {
+                      final book = notStarted[index];
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BookDetails(
+                                book: book,
+                                pageTitle: 'Not Started',
+                              ),
+                            ),
+                          );
+                        },
+                        child: ListTile(
+                          leading: Image.network(book.imageCover),
+                          title: Text(
+                            book.title,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                          subtitle: Text(book.author!.name),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             ),
           ],
-        ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
-          label: const Text('Add book manually'),
-          icon: const Icon(Icons.add),
-          clipBehavior: Clip.antiAlias,
         ),
       ),
     );

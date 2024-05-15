@@ -25,20 +25,20 @@ class NavigationsState extends State<Navigations> {
       builder: (context, constraints) {
         if (constraints.maxWidth > 1200) {
           // For large screens (PC), keep the drawer open
-          return buildNavigationDrawer(context);
+          return BuildPC(context);
         } else if (constraints.maxWidth >= 600 &&
             constraints.maxWidth <= 1200) {
           // For medium screens (Tablet), use a collapsible drawer
-          return buildNavigationRail(context);
+          return BuildTablet(context);
         } else {
           // For small screens (Mobile), use a bottom navigation bar
-          return buildNavigationBar(context);
+          return buildMobile(context);
         }
       },
     );
   }
 
-  Widget buildNavigationBar(BuildContext context) {
+  Widget buildMobile(BuildContext context) {
     return Scaffold(
       body: Container(
         child: destinations[screenIndex].screen,
@@ -56,7 +56,7 @@ class NavigationsState extends State<Navigations> {
     );
   }
 
-  Widget buildNavigationRail(BuildContext context) {
+  Widget BuildTablet(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -89,7 +89,7 @@ class NavigationsState extends State<Navigations> {
     );
   }
 
-  Widget buildNavigationDrawer(BuildContext context) {
+  Widget BuildPC(BuildContext context) {
     return Scaffold(
       body: Row(
         children: [
@@ -100,17 +100,17 @@ class NavigationsState extends State<Navigations> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(28, 16, 16, 10),
               ),
-              ...destinations.map((Destination destination) {
+              ...destinationsAdm.map((Destination destinationsAdm) {
                 return NavigationDrawerDestination(
-                  label: Text(destination.label),
-                  icon: destination.icon,
-                  selectedIcon: destination.selectedIcon,
+                  label: Text(destinationsAdm.label),
+                  icon: destinationsAdm.icon,
+                  selectedIcon: destinationsAdm.selectedIcon,
                 );
               }),
             ],
           ),
           Expanded(
-            child: destinations[screenIndex].screen,
+            child: destinationsAdm[screenIndex].screen,
           ),
         ],
       ),

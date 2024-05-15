@@ -6,7 +6,6 @@
             "authorID": "001",
             "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1618464562i/57743808.jpg",
             "description": "Di sebuah gang kecil di Tokyo, ada kafe tua yang bisa membawa pengunjungnya menjelajahi waktu. Keajaiban kafe itu menarik seorang wanita yang ingin memutar waktu untuk berbaikan dengan kekasihnya, seorang perawat yang ingin membaca surat yang tak sempat diberikan suaminya yang sakit, seorang kakak yang ingin menemui adiknya untuk terakhir kali, dan seorang ibu yang ingin bertemu dengan anak yang mungkin takkan pernah dikenalnya. Namun ada banyak peraturan yang harus diingat. Satu, mereka harus tetap duduk di kursi yang telah ditentukan. Dua, apa pun yang mereka lakukan di masa yang didatangi takkan mengubah kenyataan di masa kini. Tiga, mereka harus menghabiskan kopi khusus yang disajikan sebelum kopi itu dingin. Rentetan peraturan lainnya tak menghentikan orang-orang itu untuk menjelajahi waktu. Akan tetapi, jika kepergian mereka tak mengubah satu hal pun di masa kini, layakkah semua itu dijalani?",
-            "status": "new",
             "details": {
                 "totalPage": 224,
                 "seriesID": "001",
@@ -84,7 +83,6 @@
             "authorID": "001",
             "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1689076927i/187714691.jpg",
             "description": "Di sebuah lereng indah tak bernama di Hakodate, Hokkaido, berdiri Kafe Dona Dona yang menawarkan layanan istimewa kepada pengunjungnya: perjalananan melintasi waktu. Seperti di Funiculi Funicula yang ada di Tokyo, hal tersebut hanya dapat dilakukan jika berbagai peraturan yang merepotkan dipenuhi dan dengan secangkir kopi yang dituangkan oleh perempuan di keluarga Tokita.",
-            "status": "new",
             "isOwned": true,
             "details": {
                 "totalPage": 263,
@@ -100,6 +98,15 @@
                 "readingDetails": {
                     "isReading": false,
                     "currentPage": 263
+                },
+                "lendDetails": {
+                    "bookAvailability": false,
+                    "lendInformation": [
+                        {
+                            "lendTo": "Audreyvia",
+                            "lendDate": "2024-05-12"
+                        }
+                    ]
                 }
             }
         },
@@ -123,7 +130,7 @@
                 },
                 "readingDetails": {
                     "isReading": false,
-                    "currentPage": 224,
+                    "currentPage": 244,
                     "readingStatus": [
                         {
                             "startDate": "2024-03-31",
@@ -164,6 +171,106 @@
             }
         },
         {
+            "isbn": "978-6-02529-722-9",
+            "title": "The Kudryavka Sequence",
+            "authorID": "002",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1547624988i/43587006.jpg",
+            "description": "Buku ketiga seri Hyouka!\nAkhirnya Festival Budaya yang dinantikan pun tiba. Namun, masalah besar terjadi dalam Klub Sastra Klasik. Gara-gara sebuah kesalahan, antologi Hyouka dicetak terlalu banyak. Saat semua orang kebingungan memikirkan cara untuk menjual habis antologi itu, sebuah kasus pencurian yang aneh pun terjadi di dalam kompleks sekolah. Bisakah mereka menjual habis antologi yang kebanyakan itu di tengah riuhnya festival? Apakah Hotaro akan menyelesaikan kasus pencurian kali ini?",
+            "isOwned": true,
+            "details": {
+                "totalPage": 392,
+                "seriesID": "002",
+                "volume": 3,
+                "ownerDetails": {
+                    "isOwned": true,
+                    "purchaseDate": "2024-02-09",
+                    "purchasePrice": 77350,
+                    "storeID": "003",
+                    "buyingMethod": "online"
+                },
+                "readingDetails": {
+                    "isReading": false,
+                    "currentPage": 392,
+                    "readingStatus": [
+                        {
+                            "startDate": "2024-04-08",
+                            "endDate": "2024-04-14"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "isbn": "978-6-02538-483-1",
+            "title": "The Doll That Took A Detour",
+            "authorID": "002",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1560239159i/46256993.jpg",
+            "description": "Buku keempat seri Hyouka\nApa sih yang terjadi selama setahun Klub Sastra Klasik berjalan? Selain Kasus Hyouka, Kasus Maharani, dan Kasus Juumonji, seperti apa sih keseharian mereka? Oreko Hotaro yang melakukan tipuan, Chitanda yang melakukan sebuah dosa besar, Klub Sastra Klasik yang pergi jalan-jalan ke pemandian air panas, tapi malah melihat hantu. Tujuh cerita pendek ini mungkin akan memberikan gambaran kepadamu mengenai keseharian Klub Sastra Klasik yang penuh misteri.",
+            "isOwned": true,
+            "details": {
+                "totalPage": 400,
+                "seriesID": "002",
+                "volume": 4,
+                "ownerDetails": {
+                    "isOwned": true,
+                    "purchaseDate": "2024-02-09",
+                    "purchasePrice": 81600,
+                    "storeID": "003",
+                    "buyingMethod": "online"
+                },
+                "readingDetails": {
+                    "isReading": true,
+                    "currentPage": 30,
+                    "readingStatus": [
+                        {
+                            "startDate": "2024-04-28",
+                            "endDate": null
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "isbn": "978-6-23735-133-7",
+            "title": "Approximating The Distance Between Two People",
+            "authorID": "002",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1595864782i/54644237.jpg",
+            "description": "Musim semi telah tiba. Klub Sastra Klasik akhirnya naik ke kelas 2 SMA. Hotaro dan teman-temannya menyambut seorang calon anggota baru kelas 1 Klub Sastra Klasik bernama Ōhinata. Akan tetapi, belum sempat gadis itu menjadi anggota resmi klub, dia tiba-tiba menyatakan mundur dengan alasan yang tidak jelas dan mencurigakan. Bisakah Hotaro menemukan alasan gadis tersebut mundur sebelum tenggat pendaftaran resmi? Sialnya, hari itu adalah hari turnamen marathon, jadi Hotaro harus berpikir sambil berlari, kegiatan yang melawan prinsip hemat energinya.",
+            "isOwned": true,
+            "details": {
+                "totalPage": 316,
+                "seriesID": "002",
+                "volume": 5,
+                "ownerDetails": {
+                    "isOwned": true,
+                    "purchaseDate": "2024-02-09",
+                    "purchasePrice": 64350,
+                    "storeID": "004",
+                    "buyingMethod": "online"
+                }
+            }
+        },
+        {
+            "isbn": "978-6-23735-148-1",
+            "title": "Even Though I'm Told I Now Have Wings",
+            "authorID": "002",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1607966152i/56280663.jpg",
+            "description": "Anak-anak Klub Sastra Klasik sudah naik ke kelas 2 SMA. Selain kasus Ohinata yang tiba-tiba tidak jadi bergabung dengan klub kecil tersebut, mereka juga menghadapi kasus-kasus kecil lainnya, seperti: kartu suara hantu yang bertambah dalam pemilu ketua OSIS, juga Chitanda yang tiba-tiba menghilang, mengabaikan tanggung jawabnya dalam lomba paduan suara. Enam cerita pendek ini mungkin akan memberikan gambaran kepadamu bagaimana anggota Klub Sastra Klasik berkembang di tengah misteri keseharian mereka.",
+            "isOwned": true,
+            "details": {
+                "totalPage": 428,
+                "seriesID": "002",
+                "volume": 6,
+                "ownerDetails": {
+                    "isOwned": true,
+                    "purchaseDate": "2024-02-09",
+                    "purchasePrice": 70850,
+                    "storeID": "004",
+                    "buyingMethod": "online"
+                }
+            }
+        },
+        {
             "isbn": "978-6-02412-518-9",
             "title": "Filosofi Teras",
             "authorID": "003",
@@ -190,6 +297,25 @@
                     "borrowedDate": "2024-03-25"
                 }
             }
+        },
+        {
+            "isbn": "978-6-02066-214-5",
+            "title": "Nak, Belajarlah Tentang Uang",
+            "authorID": "004",
+            "imageCover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1660535861i/61980232.jpg",
+            "description": "Belajar tentang uang dan ekonomi sama dengan mempelajari dasar kehidupan. Jangan menjalani kehidupan yang mengharuskanmu bergantung pada orang lain karena tidak memiliki uang. Tapi, kendalikanlah hidupmu secara mandiri. Semoga kehidupanmu bisa berdiri tegak di atas dasar permukaan yang kokoh.—Kutipan dari Bab \"Nak, Pernikahan adalah Perjanjian Menyangkut Ekonomi\".\nBuku adalah sajian terhangat yang bisa Ayah berikan. Buku ini berisi ketulusan hati Ayah, dengan cara mengeluarkan segala yang ada di hati Ayah sejak lama. Ayah dan ibumu hingga sekarang selalu berusaha memberikan hidangan terhangat untukmu. Demi menyajikan hidangan hangat tersebut, dengan rela kami hidup sederhana. Tetapi, hidangan tersebut hanya ada ketika kamu, masih bersama orangtuamu. Ini alasan kenapa Ayah menyuruhmu untuk belajar tentang ekonomi sendiri.—Kutipan dan Bab \"Tetaplah Buka Matamu di Malam Hari\"",
+            "status": "new",
+            "isOwned": true,
+            "details": {
+                "totalPage": 302,
+                "ownerDetails": {
+                    "isOwned": true,
+                    "purchaseDate": "2024-05-02",
+                    "purchasePrice": 93220,
+                    "storeID": "003",
+                    "buyingMethod": "online"
+                }
+            }
         }
     ],
     "authors": [
@@ -204,6 +330,10 @@
         {
             "id": "003",
             "name": "Henry Manampiring"
+        },
+        {
+            "id": "004",
+            "name": "Jeong Seon Yong"
         }
     ],
     "series": [
